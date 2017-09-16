@@ -85,6 +85,13 @@
                         {% include "includes/article_info.html" %}
                     </div>
                 </div>
+
+                <p>Contents:</p>
+                <nav class="toc">
+                  {{ article.toc }}
+                </nav>
+                <hr>
+                
                 {{ article.content }}
             </div>
             <!-- /.entry-content -->
