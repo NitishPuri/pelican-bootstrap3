@@ -86,13 +86,32 @@
                     </div>
                 </div>
 
+                {% if article.toc %}
                 <p>Contents:</p>
                 <nav class="toc">
                   {{ article.toc }}
                 </nav>
                 <hr>
+                {% endif %}
                 
                 {{ article.content }}
+
+                {% if article.photo_gallery %}
+                {% for title, gallery in article.photo_gallery %}
+                    <a href="{{SITEURL}}/art/{{ title }}.html">
+                        <h1>{{ title }}</h1>
+                    </a>
+                    <div class="row text-center text-lg-left">
+                        {% for name, photo, thumb, exif, caption in gallery %}
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="{{ SITEURL }}/pages/{{ name|slugify }}.html" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="{{ SITEURL }}/{{ thumb }}" alt="{{ caption}}" exif="{{ exif }}">
+                            </a>
+                        </div>                      
+                        {% endfor %}  <!-- for photo in gallery -->                 
+                  </div>                    
+                  {% endfor %}  <!-- for each gallery-->
+                {% endif %}            
             </div>
             <!-- /.entry-content -->
             {% include 'includes/related-posts.html' %}
