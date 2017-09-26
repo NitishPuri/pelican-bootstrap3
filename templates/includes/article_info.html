@@ -29,6 +29,11 @@
     {% if SHOW_ARTICLE_CATEGORY %}
         <span class="label label-default">{{ _('Category') }}</span>
         <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+
+        {% for subcategory in article.subcategories %}
+            <a href="{{ SITEURL }}/{{ subcategory.url }}">/{{ subcategory.shortname }}</a>
+        {% endfor %}        
+
     {% endif %}
 
     {% if PDF_PROCESSOR %}
