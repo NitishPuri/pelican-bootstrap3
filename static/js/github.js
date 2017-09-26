@@ -23,6 +23,8 @@ var github = (function(){
           if (!data || !data.data) { return; }
           for (var i = 0; i < data.data.length; i++) {
             if (options.skip_forks && data.data[i].fork) { continue; }
+            // remove site repos.
+            if(/nitishpuri\.github\.io*/.test(data.data[i].name)) { continue; }           
             repos.push(data.data[i]);
           }
           repos.sort(function(a, b) {
@@ -32,6 +34,7 @@ var github = (function(){
             if (aDate === bDate) { return 0; }
             return aDate > bDate ? -1 : 1;
           });
+
 
           if (options.count) { repos.splice(options.count); }
           render(options.target, repos);
