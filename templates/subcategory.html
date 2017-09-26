@@ -1,0 +1,15 @@
+{% extends "article_list.html" %}
+{% block title %}{{ subcategory }} - {{ SITENAME }}{% endblock %}
+{% block meta %}
+    <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="keywords" content="{{ subcategory }}" />
+{% endblock %}
+{% block breadcrumbs %}
+    {% if DISPLAY_BREADCRUMBS %}
+    <ol class="breadcrumb">
+        <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+        <li><a href="{{ SITEURL }}/{{ SUBCATEGORY_URL }}" title="Subcategoriess">Subcategories</a></li>
+        <li class="active">{{ subcategory }}</li>
+    </ol>
+    {% endif %}
+{% endblock %}
