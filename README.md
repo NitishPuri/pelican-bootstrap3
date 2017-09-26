@@ -1,3 +1,20 @@
+This is a fork from the original repo described below.
+Has some modifications for:
+* Show TOC.
+* Support for Gallery.
+* Fixed Disqus comments not working.
+* Use `AddThis`.
+* custom code to remove some github repos from the sidebar.
+* Template for subcategories.
+
+Also, I added the plugins I use(and modified) to this repo just for maintenance.    
+They are present in the `plugins` directory.    
+No direct correlation with the theme.   
+
+Now the original instructions...     
+
+
+
 # pelican-bootstrap3
 
 This is a Bootstrap 3 theme for Pelican, originally developed by
