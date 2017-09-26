@@ -28,6 +28,11 @@
         {% if article.category %}
             <meta property="article:section" content="{{ article.category }}" />
         {% endif %}
+        {% if article.subcategories %}
+            {% for subcategory in article.subcategories %}
+                <meta property="article:subcategory" content="{{ subcategory }}" />
+            {% endfor %}
+        {% endif %}
         {% for tag in article.tags %}
             <meta property="article:tag" content="{{ tag }}" />
         {% endfor %}
@@ -86,6 +91,8 @@
                     </div>
                 </div>
 
+                {% include 'includes/addthis.html' %}
+                
                 {% if article.toc %}
                 <p>Contents:</p>
                 <nav class="toc">
