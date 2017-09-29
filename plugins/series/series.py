@@ -65,6 +65,15 @@ def aggregate_series(generator):
             else:
                 article.series['previous'] = None
 
+            # Remove the articles from category page if not first in the series.
+            if index > 0:
+                if article.category:
+                    for cat, arts in generator.categories:
+                        if cat.name == article.category.name:
+                            arts.remove(article)
+                            # print("Removing article from category page : {}".format(article.title))
+                            break
+
             try:
                 article.series['next'] = ordered_articles[index + 1]
             except IndexError:
